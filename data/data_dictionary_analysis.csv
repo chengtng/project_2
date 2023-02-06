@@ -1,0 +1,86 @@
+No,Feature,Description,X,Data type,Missing Data,Remarks
+1,resale_price,the property's sale price in Singapore dollars. This is the target variable that you're trying to predict for this challenge.,0,numerical,,To predict this value
+2,Tranc_YearMonth,"year and month of the resale transaction, e.g. 2015-02",0,Categorical,,Used in tran_year and tran_month
+3,town,"HDB township where the flat is located, e.g. BUKIT MERAH",0,Categorical,,Related to planning area
+4,flat_type,"type of the resale flat unit, e.g. 3 ROOM",1,Categorical,,"Flat_type ""3 ROOM"" has -0.5 correlation with resale price
+Flat type ""Executive"" has 0.37 correlation with resale price"
+5,block,"block number of the resale flat, e.g. 454",0,Categorical,,In postal code
+6,street_name,"street name where the resale flat resides, e.g. TAMPINES ST 42",0,Categorical,,"Too many unique values, around 500. Related with common rentals?"
+7,storey_range,"floor level (range) of the resale flat unit, e.g. 07 TO 09",0,Categorical,,Using mid storey
+8,floor_area_sqm,floor area of the resale flat unit in square metres,1,numerical,,Old flats has larger area
+9,flat_model,"HDB model of the resale flat, e.g. Multi Generation",1,Categorical,,"Flat model ""NEW GENERATION"" has negative 0.28 correlation with resale price"
+10,lease_commence_date,commencement year of the flat unit's 99-year lease,0,Date,,"Used to calculate the 99 years, it can be later than the completion date"
+11,Tranc_Year,year of resale transaction,1,numerical,,Year of transaction
+12,Tranc_Month,month of resale transaction,0,numerical,,
+13,mid_storey,median value of storey_range,0,numerical,,
+14,lower,lower value of storey_range,0,numerical,,
+15,upper,upper value of storey_range,0,numerical,,
+16,mid,middle value of storey_range,1,numerical,,"Actual floor is masked
+has 0.35 correlation with resale price"
+17,full_flat_type,combination of flat_type and flat_model,0,Categorical,,Separate features flat type and flat model
+18,address,combination of block and street_name,0,Categorical,,
+19,floor_area_sqft,floor area of the resale flat unit in square feet,0,numerical,,using sqm
+20,hdb_age,number of years from lease_commence_date to present year,0,numerical,,"Older flats can fetch higher price, in different areas age might not matter
+Calculated based on lease completion date
+negative 0.35 correlation with resale price
+Replace with hdb_age_at_tran"
+21,max_floor_lvl,highest floor of the resale flat,1,numerical,,has 0.5 correlation with resale price
+22,year_completed,year which construction was completed for resale flat,0,numerical,,best correlation
+23,residential,boolean value if resale flat has residential units in the same block,0,Categorical,,All Yes
+24,commercial,boolean value if resale flat has commercial units in the same block,0,Categorical,,"Downstairs got marts, not very helpful to indicate"
+25,market_hawker,boolean value if resale flat has a market or hawker centre in the same block,0,Categorical,,
+26,multistorey_carpark,boolean value if resale flat has a multistorey carpark in the same block,0,Categorical,,
+27,precinct_pavilion,boolean value if resale flat has a pavilion in the same block,0,Categorical,,
+28,total_dwelling_units,total number of residential dwelling units in the resale flat,0,numerical,,"Quite hard to infer from this column what type of block it is. Larger area, less dwelling unit"
+29,1room_sold,number of 1-room residential units in the resale flat,0,numerical,Rows with zeroes in column [1room_sold]: 150552,Bto sengkang 1 room flats? 32 sqm
+30,2room_sold,number of 2-room residential units in the resale flat,0,numerical,Rows with zeroes in column [2room_sold]: 144324,About 45 sqm
+31,3room_sold,number of 3-room residential units in the resale flat,0,numerical,Rows with zeroes in column [3room_sold]: 95671,negative 0.41 correlation with resale price
+32,4room_sold,number of 4-room residential units in the resale flat,0,numerical,Rows with zeroes in column [4room_sold]: 30379,Most common
+33,5room_sold,number of 5-room residential units in the resale flat,0,numerical,Rows with zeroes in column [5room_sold]: 62782,Most common
+34,exec_sold,number of executive type residential units in the resale flat block,0,numerical,Rows with zeroes in column [exec_sold]: 124614,
+35,multigen_sold,number of multi-generational type residential units in the resale flat block,0,numerical,Rows with zeroes in column [multigen_sold]: 150557,
+36,studio_apartment_sold,number of studio apartment type residential units in the resale flat block,0,numerical,Rows with zeroes in column [studio_apartment_sold]: 149226,For seniors
+37,1room_rental,number of 1-room rental residential units in the resale flat block,0,numerical,Rows with zeroes in column [1room_rental]: 150332,"Related to 1 room sold, can it be rent from government?"
+38,2room_rental,number of 2-room rental residential units in the resale flat block,0,numerical,Rows with zeroes in column [2room_rental]: 148770,
+39,3room_rental,number of 3-room rental residential units in the resale flat block,0,numerical,Rows with zeroes in column [3room_rental]: 146805,
+40,other_room_rental,"number of ""other"" type rental residential units in the resale flat block",0,numerical,Rows with zeroes in column [other_room_rental]: 150602,
+41,postal,postal code of the resale flat block,0,Categorical,,"[2-Sector][1-Delivery point][3-Block]  Useful to classify blocks, a few values are NIL,  the granularity is too high"
+42,Latitude,Latitude based on postal code,0,numerical,,Related to postal code
+43,Longitude,Longitude based on postal code,0,numerical,,Related to postal code
+44,planning_area,Government planning area that the flat is located,1,Categorical,,"32 Unique. 2nd Lowest granularity. Related to town: Planning areas, also known as DGP areas or DGP zones, are the main urban planning and census divisions of Singapore delineated by the Urban Redevelopment Authority. There are a total of 55 of these areas, organised into five regions."
+45,Mall_Nearest_Distance,distance (in metres) to the nearest mall,1,numerical,Empty rows in column [Mall_Nearest_Distance]: 829,
+46,Mall_Within_500m,number of malls within 500 metres,0,numerical,Empty rows in column [Mall_Within_500m]: 92789,
+47,Mall_Within_1km,number of malls within 1 kilometre,0,numerical,Empty rows in column [Mall_Within_1km]: 25426,
+48,Mall_Within_2km,number of malls within 2 kilometres,1,numerical,Empty rows in column [Mall_Within_2km]: 1940,
+49,Hawker_Nearest_Distance,distance (in metres) to the nearest hawker centre,1,numerical,,
+50,Hawker_Within_500m,number of hawker centres within 500 metres,0,numerical,Empty rows in column [Hawker_Within_500m]: 97390,
+51,Hawker_Within_1km,number of hawker centres within 1 kilometre,0,numerical,Empty rows in column [Hawker_Within_1km]: 60868,
+52,Hawker_Within_2km,number of hawker centres within 2 kilometres,1,numerical,Empty rows in column [Hawker_Within_2km]: 29202,
+53,hawker_food_stalls,number of hawker food stalls in the nearest hawker centre,0,numerical,Rows with zeroes in column [hawker_food_stalls]: 1141,some of the data might not be complete
+54,hawker_market_stalls,number of hawker and market stalls in the nearest hawker centre,0,numerical,Rows with zeroes in column [hawker_market_stalls]: 57251,"Determines wet marker, some of the data might not be complete"
+55,mrt_nearest_distance,distance (in metres) to the nearest MRT station,1,numerical,,
+56,mrt_name,name of the nearest MRT station,0,Categorical,,Nearest mrt station is already covered by planning area
+57,bus_interchange,boolean value if the nearest MRT station is also a bus interchange,1,Categorical,,
+58,mrt_interchange,boolean value if the nearest MRT station is a train interchange station,1,Categorical,,
+59,mrt_latitude,latitude (in decimal degrees) of the the nearest MRT station,0,numerical,,
+60,mrt_longitude,longitude (in decimal degrees) of the nearest MRT station,0,numerical,,
+61,bus_stop_nearest_distance,distance (in metres) to the nearest bus stop,0,numerical,,Around 100m to 200m for most of the data points
+62,bus_stop_name,name of the nearest bus stop,0,Categorical,,Too many unqiue values
+63,bus_stop_latitude,latitude (in decimal degrees) of the the nearest bus stop,0,numerical,,
+64,bus_stop_longitude,longitude (in decimal degrees) of the nearest bus stop,0,numerical,,
+65,pri_sch_nearest_distance,distance (in metres) to the nearest primary school,0,numerical,,"Mostly within 1km of the flat
+Primary school is important for younger family who are buying housing
+Not a major factor"
+66,pri_sch_name,name of the nearest primary school,0,Categorical,,
+67,vacancy,number of vacancies in the nearest primary school,0,numerical,,
+68,pri_sch_affiliation,boolean value if the nearest primary school has a secondary school affiliation,0,Categorical,,"Relgious schools, higher change of getting into Secondary school"
+69,pri_sch_latitude,latitude (in decimal degrees) of the the nearest primary school,0,numerical,,
+70,pri_sch_longitude,longitude (in decimal degrees) of the nearest primary school,0,numerical,,
+71,sec_sch_nearest_dist,distance (in metres) to the nearest secondary school,0,numerical,,"Values are around 0-500m, within walking distance"
+72,sec_sch_name,name of the nearest secondary school,0,Categorical,,
+73,cutoff_point,PSLE cutoff point of the nearest secondary school,1,numerical,,"Can help to indicate top secondary schools
+.0346 correlation"
+74,affiliation,boolean value if the nearest secondary school has an primary school affiliation,0,Categorical,,Mostly of the same value
+75,sec_sch_latitude,latitude (in decimal degrees) of the the nearest secondary school,0,numerical,,
+76,sec_sch_longitude,longitude (in decimal degrees) of the nearest secondary school,0,numerical,,
+77,hdb_age_at_tranc,hdb age during the transaction date,1,numerical,,New column
