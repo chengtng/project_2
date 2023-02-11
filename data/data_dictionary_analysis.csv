@@ -10,7 +10,7 @@ Flat type ""Executive"" has 0.37 correlation with resale price"
 8,floor_area_sqm,floor area of the resale flat unit in square metres,1,numerical,,Old flats has larger area
 9,flat_model,"HDB model of the resale flat, e.g. Multi Generation",1,Categorical,,"Flat model ""NEW GENERATION"" has negative 0.28 correlation with resale price"
 10,lease_commence_date,commencement year of the flat unit's 99-year lease,0,Date,,"Used to calculate the 99 years, it can be later than the completion date"
-11,Tranc_Year,year of resale transaction,1,numerical,,Year of transaction
+11,Tranc_Year,year of resale transaction,1,Categorical,,Year of transaction
 12,Tranc_Month,month of resale transaction,0,numerical,,
 13,mid_storey,median value of storey_range,0,numerical,,
 14,lower,lower value of storey_range,0,numerical,,
