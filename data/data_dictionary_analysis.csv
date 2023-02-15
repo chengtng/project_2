@@ -17,7 +17,7 @@ Flat type ""Executive"" has 0.37 correlation with resale price"
 15,upper,upper value of storey_range,0,numerical,,
 16,mid,middle value of storey_range,1,numerical,,"Actual floor is masked
 has 0.35 correlation with resale price"
-17,full_flat_type,combination of flat_type and flat_model,0,Categorical,,Separate features flat type and flat model
+17,full_flat_type,combination of flat_type and flat_model,0,Categorical,,20 unique values. Separate features flat type and flat model
 18,address,combination of block and street_name,0,Categorical,,
 19,floor_area_sqft,floor area of the resale flat unit in square feet,0,numerical,,using sqm
 20,hdb_age,number of years from lease_commence_date to present year,0,numerical,,"Older flats can fetch higher price, in different areas age might not matter
@@ -48,20 +48,20 @@ Replace with hdb_age_at_tran"
 42,Latitude,Latitude based on postal code,0,numerical,,Related to postal code
 43,Longitude,Longitude based on postal code,0,numerical,,Related to postal code
 44,planning_area,Government planning area that the flat is located,1,Categorical,,"32 Unique. 2nd Lowest granularity. Related to town: Planning areas, also known as DGP areas or DGP zones, are the main urban planning and census divisions of Singapore delineated by the Urban Redevelopment Authority. There are a total of 55 of these areas, organised into five regions."
-45,Mall_Nearest_Distance,distance (in metres) to the nearest mall,1,numerical,Empty rows in column [Mall_Nearest_Distance]: 829,
+45,Mall_Nearest_Distance,distance (in metres) to the nearest mall,0,numerical,Empty rows in column [Mall_Nearest_Distance]: 829,
 46,Mall_Within_500m,number of malls within 500 metres,0,numerical,Empty rows in column [Mall_Within_500m]: 92789,
 47,Mall_Within_1km,number of malls within 1 kilometre,0,numerical,Empty rows in column [Mall_Within_1km]: 25426,
-48,Mall_Within_2km,number of malls within 2 kilometres,1,numerical,Empty rows in column [Mall_Within_2km]: 1940,
-49,Hawker_Nearest_Distance,distance (in metres) to the nearest hawker centre,1,numerical,,
+48,Mall_Within_2km,number of malls within 2 kilometres,0,numerical,Empty rows in column [Mall_Within_2km]: 1940,
+49,Hawker_Nearest_Distance,distance (in metres) to the nearest hawker centre,0,numerical,,
 50,Hawker_Within_500m,number of hawker centres within 500 metres,0,numerical,Empty rows in column [Hawker_Within_500m]: 97390,
 51,Hawker_Within_1km,number of hawker centres within 1 kilometre,0,numerical,Empty rows in column [Hawker_Within_1km]: 60868,
-52,Hawker_Within_2km,number of hawker centres within 2 kilometres,1,numerical,Empty rows in column [Hawker_Within_2km]: 29202,
+52,Hawker_Within_2km,number of hawker centres within 2 kilometres,0,numerical,Empty rows in column [Hawker_Within_2km]: 29202,
 53,hawker_food_stalls,number of hawker food stalls in the nearest hawker centre,0,numerical,Rows with zeroes in column [hawker_food_stalls]: 1141,some of the data might not be complete
 54,hawker_market_stalls,number of hawker and market stalls in the nearest hawker centre,0,numerical,Rows with zeroes in column [hawker_market_stalls]: 57251,"Determines wet marker, some of the data might not be complete"
 55,mrt_nearest_distance,distance (in metres) to the nearest MRT station,1,numerical,,
 56,mrt_name,name of the nearest MRT station,0,Categorical,,Nearest mrt station is already covered by planning area
-57,bus_interchange,boolean value if the nearest MRT station is also a bus interchange,1,Categorical,,
-58,mrt_interchange,boolean value if the nearest MRT station is a train interchange station,1,Categorical,,
+57,bus_interchange,boolean value if the nearest MRT station is also a bus interchange,0,Categorical,,
+58,mrt_interchange,boolean value if the nearest MRT station is a train interchange station,0,Categorical,,
 59,mrt_latitude,latitude (in decimal degrees) of the the nearest MRT station,0,numerical,,
 60,mrt_longitude,longitude (in decimal degrees) of the nearest MRT station,0,numerical,,
 61,bus_stop_nearest_distance,distance (in metres) to the nearest bus stop,0,numerical,,Around 100m to 200m for most of the data points
@@ -78,7 +78,7 @@ Not a major factor"
 70,pri_sch_longitude,longitude (in decimal degrees) of the nearest primary school,0,numerical,,
 71,sec_sch_nearest_dist,distance (in metres) to the nearest secondary school,0,numerical,,"Values are around 0-500m, within walking distance"
 72,sec_sch_name,name of the nearest secondary school,0,Categorical,,
-73,cutoff_point,PSLE cutoff point of the nearest secondary school,1,numerical,,"Can help to indicate top secondary schools
+73,cutoff_point,PSLE cutoff point of the nearest secondary school,0,numerical,,"Can help to indicate top secondary schools
 .0346 correlation"
 74,affiliation,boolean value if the nearest secondary school has an primary school affiliation,0,Categorical,,Mostly of the same value
 75,sec_sch_latitude,latitude (in decimal degrees) of the the nearest secondary school,0,numerical,,
