@@ -12,7 +12,7 @@ There is an upward trend in resale prices, with prices increasing about 2.8 % ev
 1. Lesser waiting time compared to BTO flats
 2. Mature estates established infrastructures, amenitites and good accessibility
 3. More spacious than BTO flats
-4. Increments in resale grants for familieis buying 4-Room and 5-Room resale flats for the first time
+4. Increments in resale grants for families buying 4-Room and 5-Room resale flats for the first time
 5. Lesser costs on renovation needed
 6. More options for location and flat types
 
@@ -23,7 +23,7 @@ Whereas, the downsides are:
 
 ### Problem Statement
 
-With rising demand and prices in resale flats, we attempt on a regression model to based on variables selected from a combination of manual shortlisting and EDA analysis. For model prediction, it helps home buyers have a alternative metric to compare against the plethora of pricing tools available online.
+With rising demand and prices in resale flats, we attempt on a regression model to based on variables selected from a combination of manual shortlisting and EDA analysis. It serve as an alternative metric to compare with the plethora of pricing tools available online.
 
 ### Datasets
 
@@ -33,10 +33,10 @@ With rising demand and prices in resale flats, we attempt on a regression model 
 #### Test Data 
 * [HDB resale prices from 2012 to 2022 Testing](./data/test.csv): <br>
 
-#### Kaggle Submission Predictions 
+#### Test Prediction
 * [HDB resale prices from 2012 to 2022 Prediction](./data/sub_reg.csv): <br>
 
-We have selected the following features and target:
+#### Summary of features and target:
 
 |Feature|Description|Type|
 |---|---|---|
@@ -51,7 +51,7 @@ We have selected the following features and target:
 |hdb_age_at_tranc|hdb age during the transaction date|numerical|
 |resale_price|price of resale flat|target|
 
-### EDA Process
+### EDA Overview
 
 ```mermaid
 graph TD
@@ -71,7 +71,7 @@ graph TD
     J(Split dataset into 2 subset of planning areas <br> to train 2 different models)
 ```
 
-Findings:
+### Feature Selection
 1. Features with many empty or null values are not selected to train the model.
 2. A new HDB age at transaction feature is created as the age during transaction affects the price.
 3. 9 features are shortlisted manually based on meaning of the feature and put into either categorical or numerical basket.
@@ -86,7 +86,46 @@ Findings:
 ![Dataset 2](images/dataset2.png)
 
 ### Model
-I am building two models, one for planning areas with lower spread of prices, another for planning areas with higher spread in prices.
+* Model 1 for planning areas with lower spread of prices.
+
+|Planning Area |DataSet|
+|---|---|
+|Hougang                   |1|
+|Downtown Core             |1|
+|Tampines                  |1|
+|Bukit Panjang             |1|
+|Jurong West               |1|
+|Pasir Ris                 |1|
+|Rochor                    |1|
+|Sengkang                  |1|
+|Yishun                    |1|
+|Choa Chu Kang             |1|
+|Woodlands                 |1|
+|Sembawang                 |1|
+|Punggol                   |1|
+|Western Water Catchment   |1|
+|Changi                    |1|
+
+* Model 1 for planning areas with higher spread in prices.
+|Planning Area |DataSet|
+|---|---|
+|Outram                    |2|
+|Queenstown                |2|
+|Bukit Merah               |2|
+|Toa Payoh                 |2|
+|Bukit Timah               |2|
+|Novena                    |2|
+|Tanglin                   |2|
+|Kallang                   |2|
+|Geylang                   |2|
+|Bishan                    |2|
+|Clementi                  |2|
+|Serangoon                 |2|
+|Jurong East               |2|
+|Marine Parade             |2|
+|Bedok                     |2|
+|Ang Mo Kio                |2|
+|Bukit Batok               |2|
 
 Both models go through a pipeline:
 1. Numerical features are transformed by StandardScaler
@@ -96,6 +135,8 @@ Both models go through a pipeline:
 ### Results
 * The first model is a ridge regression with a better cross validated train and test RMSE score of 37503 ± 194 and 37833.
 * The second model is a ridge regression with a worse cross validated train and test RMSE score of 53092 ± 413 and 53024.
+
+In conclusion, the combined model prediction will deviate from actual resale prices around 37K for flats in area 1, and around 53K for flats in area 2.
 
 Submission score:
 ![Submission RMSE Score](images/submit1.png)
