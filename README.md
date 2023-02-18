@@ -107,6 +107,7 @@ graph TD
 |Changi                    |1|
 
 * Model 1 for planning areas with higher spread in prices.
+
 |Planning Area |DataSet|
 |---|---|
 |Outram                    |2|
