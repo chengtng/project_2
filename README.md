@@ -56,7 +56,7 @@ With rising demand and prices in resale flats, we attempt on a regression model 
 ```mermaid
 graph TD
     A-->B-->C-->D-->E-->F1-->G1-->H-->I-->J
-    E-->F2-->G2-->H
+    E-->F2-->J
     A[Data Preparation]
     B(Check for Nulls, Zeroes)
     C(Impute Nulls with mean)
@@ -65,7 +65,6 @@ graph TD
     F1(fa:fa-calculator Numerical <br> Features)
     F2(fa:fa-box Categorical <br> Features)
     G1(EDA: Correlation Heat Map)
-    G2(EDA: Bar Chart)
     H(EDA: Scatter plot <br> Planning Area vs resale price)
     I(EDA: Scatter plot <br> floor Area vs resale price)
     J(Split dataset into 2 subset of planning areas <br> to train 2 different models)
@@ -134,17 +133,26 @@ Both models go through a pipeline:
 3. Estimator is chosen to be Ridge Regression and the best alpha is selected by gridsearchcv
 
 ### Results
-* The first model is a ridge regression with a better cross validated train and test RMSE score of 37503 ± 194 and 37833.
-* The second model is a ridge regression with a worse cross validated train and test RMSE score of 53092 ± 413 and 53024.
+Summary of RMSE of both models:
+1. The first model is a ridge regression with a better cross validated train and test RMSE score of 37503 ± 194 and 37833.
+2. The second model is a ridge regression with a worse cross validated train and test RMSE score of 53092 ± 413 and 53024.
 
-In conclusion, the combined model prediction will deviate from actual resale prices around 37K for flats in area 1, and around 53K for flats in area 2.
+Limitations : 
+1. We are not able to predict future (e.g. Next year) resalrre prices are our transaction year is a categorical feature
+2. Our features selection is general, and cannot to specific buyers.
+3. Macroeconomic and time sensitive variables is not captured in the regression model.
+4. The numerical features coefficient cannot be interpreted as the features are transformed by standard scaler.
 
-Submission score:
+Conclusions: 
+1. Splitting into 2 model allowed one model to more accurately predict resale flat prices in a subset of planning area.
+2. Combined model prediction will deviate from actual resale prices around 37K for flats in area 1, and around 53K for flats in area 2.
+
+Submission:
 ![Submission RMSE Score](images/submit1.png)
 
 ### Additional Exploration 
 
-Additionally I also explored using 1 model for each flat type. However, The root mean square error is higher.
+Additionally using 1 model for each flat type is explored, but the root mean square error is higher.
 
 ### Notebooks:
 
