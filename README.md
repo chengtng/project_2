@@ -138,13 +138,13 @@ Summary of RMSE of both models:
 2. The second model is a ridge regression with a worse cross validated train and test RMSE score of 53092 ± 413 and 53024.
 
 Limitations : 
-1. We are not able to predict future (e.g. Next year) resalrre prices are our transaction year is a categorical feature
-2. Our features selection is general, and cannot to specific buyers.
+1. Model unable to predict future (e.g. Next year) resale prices as transaction year is a categorical feature.
+2. The selected features are general, and cannot cater for specific buyers preferences.
 3. Macroeconomic and time sensitive variables is not captured in the regression model.
-4. The numerical features coefficient cannot be interpreted as the features are transformed by standard scaler.
+4. The model's numerical features coefficient cannot be interpreted as the features are transformed by standard scaler.
 
 Conclusions: 
-1. Splitting into 2 model allowed one model to more accurately predict resale flat prices in a subset of planning area.
+1. Splitting into 2 models allowed first model to more accurately predict resale flat prices in a subset of planning area.
 2. Combined model prediction will deviate from actual resale prices around 37K for flats in area 1, and around 53K for flats in area 2.
 
 Submission:
