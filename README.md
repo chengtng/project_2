@@ -4,6 +4,9 @@ This project aims to apply linear regression techniques on the price of homes at
 
 ### Background
 
+![HDB Resale Price Index (RPI)](images/RPI.png)
+Source: [HDB Statistics](https://www.hdb.gov.sg/residential/selling-a-flat/overview/resale-statistics)
+
 There is an upward trend in resale prices, with prices increasing about 2.8 % every quarter for the past 2 years. There is also increasing demand for resale flats driven my factors such as:
 
 1. Lesser waiting time compared to BTO flats
@@ -17,9 +20,6 @@ Whereas, the downsides are:
 
 1. Higher price than BTO flats
 2. Lesser remaining lease
-
-![HDB Resale Price Index (RPI)](images/RPI.png)
-Source: [HDB Statistics](https://www.hdb.gov.sg/residential/selling-a-flat/overview/resale-statistics)
 
 ### Problem Statement
 
@@ -39,6 +39,7 @@ With rising demand and prices in resale flats, we attempt on a regression model 
 We have selected the following features and target:
 
 |Feature|Description|Type|
+|---|---|---|
 |flat_type|type of the resale flat unit e.g. 3 ROOM|Categorical|
 |floor_area_sqm|floor area of the resale flat unit in square metres|numerical|
 |flat_model|HDB model of the resale flat, e.g. Multi Generation|Categorical|
@@ -79,13 +80,13 @@ Findings:
 5. Scatter plot shows more linearity when dataset is grouped by "planning_area"
 ![Data grouped by Planning Area](images/PlanningArea.png)
 6. Splitting dataset into 2 subsets, we can see the first dataset is more linearly correlated. Though the second dataset still looks fan-shaped.
-* First dataset contains planning areas with lower IQR in prices
-* Second dataset contains planning areas with lower IQR in prices
+* First dataset contains planning areas with lower spread in prices
 ![Dataset 1](images/dataset1.png)
+* Second dataset contains planning areas with higher spread in prices
 ![Dataset 2](images/dataset2.png)
 
 ### Model
-I am building two models, one for planning areas with lower spread of prices, one for planning areas with higher spread in prices.
+I am building two models, one for planning areas with lower spread of prices, another for planning areas with higher spread in prices.
 
 Both models go through a pipeline:
 1. Numerical features are transformed by StandardScaler
@@ -105,9 +106,8 @@ Additionally I also explored using 1 model for each flat type. However, The root
 
 ### Notebooks:
 
-1. ![Notebook for HDB resale Regression based on Planning Area](code/hdb_prices.ipynb) 
-2. ![Additional Notebook for HDB resale Regression based on Flat Type](code/hdb_prices_additional.ipynb)
-
+![Notebook for HDB resale Regression based on Planning Area](code/hdb_prices.ipynb) 
+![Additional Notebook for HDB resale Regression based on Flat Type](code/hdb_prices_additional.ipynb)
 
 ---
 
